@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <body bgcolor="#F0F8FF">
+    <title>WORDLE HELPER</title>
+        <head>
+            <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/main.css') }}">
+        </head>
+            <style> 
+            input[type=text] {
+                border: 2px solid #6aaa64;
+                background-color: #6aaa64;
+                border-radius: 3px;
+                margin: 2px;
+                font-size: 4rem;
+                font-weight: bold;
+                height: 4rem;
+                width: 4rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+            }
+            input[type=texty] {
+                border: 2px solid #c9b458;
+                background-color: #c9b458;
+                border-radius: 3px;
+                margin: 2px;
+                font-size: 4rem;
+                font-weight: bold;
+                height: 4rem;
+                width: 10rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+            }
+            input[type=textb] {
+                border: 2px solid black;
+                background-color: black;
+                border-radius: 3px;
+                margin: 2px;
+                font-size: 4rem;
+                font-weight: bold;
+                color: white;
+                height: 4rem;
+                width: 20rem;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+            }
+            .button {
+
+                border-radius: 12px;
+                border: none;
+                color: black;
+                padding: 15px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 60px;
+                margin: 4px 2px;
+            }
+            .buttonbig {
+                background-color: #04AA6D;
+                border-radius: 12px;
+                border: none;
+                color: white;
+                padding: 5px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 60px;
+                margin: 4px 2px;
+            }
+            </style>
+
+      
+
+
+    <h1><font size="50px" color="green">W<font color="black">O<font color="green">R<font color="black">D<font color="green">L<font color="black">E<font color="black"> H<font color="green">E<font color="black">L<font color="green">P<font color="black">E<font color="green">R</h1>
+        <form action="/main" method="POST">
+            <p style="font-size:40px;color:green">CORRECT</p>
+            <div><input id="w1" type="text" name="w1" maxlength="1" value={{w1}}>
+            <input id="w2" type="text" name="w2" maxlength="1" value={{w2}}>
+            <input id="w3" type="text" name="w3" maxlength="1" value={{w3}}>
+            <input id="w4" type="text" name="w4" maxlength="1" value={{w4}}>
+            <input id="w5" type="text" name="w5" maxlength="1" value={{w5}}></div>
+            
+            <p style="font-size:40px;color:yellow">MISPLACED</p>
+            <div><input id="must" type="texty" name="must" maxlength="10" value={{must}}></div>
+            
+            <p style="font-size:40px;color:black">REJECTED</p>
+            <div><input id="nword" type="textb" name="nword" maxlength="25" label=""REJECTED" value={{nword}}></div>
+            <br><br>
+            <p><input class="buttonbig" type="submit" value ="Search"></p>
+            <br>
+            <br>
+
+           {% for l in list %}
+                {% set hue = color[0:4]|random -%}
+                    <button class="button" style="font-size:40px;background-color:#{{hue}}">{{l}}</button>      
+                {%- set hue = x %}
+            {% endfor %}
+        </form>
+    </body>
+</html>
